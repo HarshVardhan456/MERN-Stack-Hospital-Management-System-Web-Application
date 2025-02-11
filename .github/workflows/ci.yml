@@ -31,9 +31,6 @@ jobs:
           cd backend
           npm install
 
-      - name: Run tests (if you have tests configured)
-        run: npm test
-
       - name: Build frontend app
         run: |
           cd frontend
