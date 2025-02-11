@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { Context } from "../main";
 import { Link, Navigate, useNavigate } from "react-router-dom";
@@ -21,6 +21,7 @@ const Register = () => {
   const handleRegistration = async (e) => {
     e.preventDefault();
     try {
+      console.log("API called");
       await axios
         .post(
           "http://localhost:4000/api/v1/user/patient/register",
@@ -43,6 +44,7 @@ const Register = () => {
           setGender("");
           setPassword("");
         });
+        console.log("API Completed");
     } catch (error) {
       toast.error(error.response.data.message);
     }

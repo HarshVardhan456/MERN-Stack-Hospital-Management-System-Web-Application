@@ -15,6 +15,7 @@ import {
 } from "../middlewares/auth.js";
 
 const router = express.Router();
+console.log("Router");
 
 router.post("/patient/register", patientRegister);
 router.post("/login", login);

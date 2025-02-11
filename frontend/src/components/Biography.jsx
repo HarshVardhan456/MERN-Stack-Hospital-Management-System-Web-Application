@@ -1,11 +1,13 @@
-import React from "react";
 
-const Biography = ({imageUrl}) => {
+
+const Biography = (props) => {
+  console.log(props);
+  
   return (
     <>
       <div className="container biography">
         <div className="banner">
-          <img src={imageUrl} alt="whoweare" />
+          <img src={props} alt="whoweare" />
         </div>
         <div className="banner">
           <p>Biography</p>

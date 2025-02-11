@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000  # Port your backend is listening on
+  type: LoadBalancer  # You can use ClusterIP if you're running inside a cluster
