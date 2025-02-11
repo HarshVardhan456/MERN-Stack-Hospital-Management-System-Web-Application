@@ -1,0 +1,24 @@
+name: Deploy to Kubernetes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Kubernetes credentials
+        run: |
+          echo "${{ secrets.K8S_CONFIG }}" > kubeconfig.yaml
+          export KUBECONFIG=kubeconfig.yaml
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f k8s/frontend-deployment.yaml
+          kubectl apply -f k8s/backend-deployment.yaml
